@@ -1,68 +1,72 @@
-function SectionHeader({ title, lead }) {
-  return (
-    <div className="mb-5 flex items-center gap-3">
-      <div className="h-8 w-2 rounded-full bg-gradient-to-b from-[#0f2b44] to-[#071a2b] shadow-lg" />
-      <div>
-        <h2 className="text-lg font-semibold text-[#071a2b]">{title}</h2>
-        <p className="text-sm text-slate-500">{lead}</p>
-      </div>
-    </div>
-  );
-}
+import { CheckCircle2, Server, Database, Layers } from "lucide-react";
 
 export default function Products() {
   return (
-    <section id="products" className="mb-12">
-      <SectionHeader title="محصولات" lead="سامانه‌ای برای ساده‌سازی فرآیندهای پیچیده کدگذاری در صنعت برق." />
-
-      <div className="rounded-[14px] bg-white p-6 shadow-[0_14px_30px_rgba(15,23,42,0.12)]">
-        <div className="grid gap-7 md:grid-cols-[1.5fr_2fr] md:items-start">
-          <div>
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-blue-50/40 px-3 py-1 text-sm text-[#071a2b]">
-              <span className="h-2 w-2 rounded-full bg-blue-500" />
-              <span>سامانه کدگذاری آنلاین تجهیزات و هستنده‌های مکانی</span>
-            </div>
-
-            <h3 className="mb-2 text-[15px] font-semibold text-[#071a2b]">سامانه کدگذاری آنلاین</h3>
-
-            <p className="mb-4 text-sm leading-7 text-slate-600">
-              این سامانه به منظور تسهیل فرآیند جمع‌آوری و ورود اطلاعات مکانی و غیرمکانی صنعت برق طراحی شده است تا کاربران بتوانند
-              مطابق دستورالعمل‌های توانیر، خروجی جداول کدگذاری‌شده را به صورت خودکار و در فرمت‌های استاندارد دریافت نمایند.
-            </p>
-
-            <div className="grid gap-2 sm:grid-cols-2">
-              {[
-                ["استاندارد توانیر", "پشتیبانی از ساختار دیتابیس‌های برق منطقه‌ای و تجمیع کشوری"],
-                ["کاربران هدف", "واحدهای GIS برق منطقه‌ای، مشاوران و پیمانکاران صنعت برق"],
-                ["خروجی‌ها", "تولید خودکار جداول کدگذاری در قالب‌ها و فرمت‌های مختلف دیتابیسی"],
-                ["مزیت کلیدی", "کاهش چشمگیر زمان و هزینه ورود و کنترل اطلاعات پروژه‌ها"],
-              ].map(([k, v]) => (
-                <div key={k} className="rounded-xl border border-slate-100 bg-slate-50/70 p-3 text-sm text-slate-600">
-                  <div className="mb-1 text-xs text-slate-400">{k}</div>
-                  {v}
-                </div>
-              ))}
-            </div>
+    <section id="products" className="mb-24">
+      {/* Container with a subtle border and shadow */}
+      <div className="overflow-hidden rounded-3xl bg-white shadow-2xl shadow-slate-200/50 ring-1 ring-slate-900/5 md:grid md:grid-cols-2">
+        
+        {/* Left: Content & Value Prop */}
+        <div className="p-8 lg:p-14 flex flex-col justify-center">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700 w-fit">
+            <span className="h-2 w-2 rounded-full bg-emerald-500" />
+            محصول نرم‌افزاری ویژه
           </div>
+          
+          <h2 className="mb-6 text-3xl font-bold text-[#071a2b]">سامانه کدگذاری آنلاین تجهیزات</h2>
+          
+          <p className="mb-8 text-slate-600 leading-8">
+            راهکاری هوشمند برای تسهیل فرآیند پیچیده جمع‌آوری و استانداردسازی اطلاعات مکانی صنعت برق. 
+            با این سامانه، خروجی‌های دیتابیس دقیقاً مطابق دستورالعمل‌های توانیر تولید می‌شوند.
+          </p>
 
-          <div className="space-y-3 text-sm leading-7 text-slate-500">
-            <p>
-              با توجه به الزام شرکت محترم توانیر مبنی بر ورود کلیه اطلاعات مکانی و توصیفی صنعت برق در فرمت‌های استاندارد و
-              دیتابیس‌های مصوب، اقدامات مختلفی برای طراحی سامانه‌های واسط انجام شده است. با تکمیل و توسعه استانداردها و تغییرات
-              متعدد در اقلام اطلاعاتی، نهایتاً دستورالعمل جامع نحوه کدگذاری یا شناسه‌گذاری تجهیزات و هستنده‌های مکانی و غیرمکانی
-              ابلاغ گردید که به دلیل ارتباطات پیچیده میان جداول، اجرای آن به‌صورت دستی بسیار دشوار است.
-            </p>
+          <div className="space-y-4">
+            {[
+              "تولید خودکار جداول کدگذاری استاندارد",
+              "پشتیبانی از ساختار دیتابیس‌های برق منطقه‌ای",
+              "کاهش ۹۰٪ خطاهای انسانی در ورود داده",
+              "مناسب برای واحدهای GIS و پیمانکاران"
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-3">
+                <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-blue-600" />
+                <span className="text-sm font-medium text-slate-700">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
 
-            <p>
-              شرکت فرداد نیرو به منظور تسهیل این فرآیند، <strong className="text-slate-700">سامانه کدگذاری آنلاین</strong> را راه‌اندازی
-              نموده است. در این سامانه، کاربران با مشخص کردن برخی اقلام اطلاعاتی مرتبط با بخشی که قصد ورود اطلاعات آن را دارند،
-              می‌توانند به‌صورت اتوماتیک خروجی جداول کدگذاری‌شده خود را در قالب‌های متنوع، از جمله فرمت استاندارد دیتابیس، دریافت کنند.
-            </p>
+        {/* Right: Visual Context (Dark Mode to represent 'Tech') */}
+        <div className="relative bg-[#0f172a] p-8 lg:p-14 flex flex-col justify-between overflow-hidden">
+          {/* Decorative Gradients */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-600/20 blur-[100px] rounded-full translate-y-1/2 -translate-x-1/2" />
+          
+          <div className="relative z-10">
+            <div className="flex items-center gap-4 mb-8">
+               <div className="p-3 bg-white/10 rounded-lg backdrop-blur-md border border-white/10">
+                 <Server className="text-blue-400" size={24} />
+               </div>
+               <div className="text-white font-bold text-lg">چرا این سامانه؟</div>
+            </div>
 
-            <p>
-              نتیجه استفاده از این سامانه، <strong className="text-slate-700">صرفه‌جویی قابل توجه در زمان و هزینه‌های جانبی پروژه‌ها</strong>{" "}
-              و همچنین کاهش خطاهای انسانی در فرآیند ورود و یکپارچه‌سازی داده‌ها است.
+            <p className="text-slate-400 leading-7 text-sm mb-10">
+                دستورالعمل‌های کدگذاری توانیر پیچیده هستند. اجرای دستی آن‌ها زمان‌بر و پرخطاست. 
+                ما این فرآیند را اتوماتیک کرده‌ایم تا شما بر روی تحلیل داده‌ها تمرکز کنید، نه ورود آن‌ها.
             </p>
+            
+            {/* Stats Card */}
+            <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white/5 border border-white/10 rounded-xl p-4 backdrop-blur-sm">
+                    <Database className="text-emerald-400 mb-3" size={20} />
+                    <div className="text-2xl font-bold text-white mb-1">۱۰۰٪</div>
+                    <div className="text-xs text-slate-400">انطباق با استاندارد</div>
+                </div>
+                <div className="bg-white/5 border border-white/10 rounded-xl p-4 backdrop-blur-sm">
+                    <Layers className="text-amber-400 mb-3" size={20} />
+                    <div className="text-2xl font-bold text-white mb-1">خودکار</div>
+                    <div className="text-xs text-slate-400">تولید لایه‌های GIS</div>
+                </div>
+            </div>
           </div>
         </div>
       </div>

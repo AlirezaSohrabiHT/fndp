@@ -1,15 +1,15 @@
-import Header from "./components/Header.jsx";
-import Hero from "./components/Hero.jsx";
-import Services from "./components/Services.jsx";
-import Products from "./components/Products.jsx";
-import Contact from "./components/Contact.jsx";
-import Footer from "./components/Footer.jsx";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import Services from "./components/Services";
+import Products from "./components/Products";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#f5f7fb] text-slate-800">
+    <div dir="rtl" className="min-h-screen selection:bg-blue-500 selection:text-white">
       <Header />
-      <main className="mx-auto max-w-[1100px] px-6 pb-14 pt-10">
+      <main className="mx-auto max-w-7xl px-6">
         <Hero />
         <Services />
         <Products />

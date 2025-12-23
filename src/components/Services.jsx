@@ -1,53 +1,53 @@
+import { Globe, Sun, Zap } from "lucide-react";
+
 const SERVICES = [
   {
-    icon: "GIS",
-    title: "خدمات GIS و پایگاه‌های داده مکانی",
-    text:
-      "طراحی و توسعه نرم‌افزارهای تخصصی، مشاوره و اجرای پروژه‌های GIS برای جمع‌آوری، کدگذاری و انتقال اطلاعات مکانی و توصیفی به ژئودیتابیس‌ها مطابق با استانداردهای ابلاغی شرکت توانیر و برق‌های منطقه‌ای.",
+    icon: Globe,
+    color: "bg-blue-500",
+    shadow: "shadow-blue-500/30",
+    title: "GIS و پایگاه‌های مکانی",
+    desc: "طراحی و توسعه نرم‌افزار، مشاوره و اجرای پروژه‌های GIS جهت کدگذاری و انتقال اطلاعات به ژئودیتابیس‌های استاندارد توانیر.",
   },
   {
-    icon: "☀︎",
-    title: "نیروگاه‌های خورشیدی و انرژی‌های تجدیدپذیر",
-    text:
-      "طراحی، نظارت، مشاوره و اجرای نیروگاه‌های خورشیدی با رویکرد تخصصی در حوزه انرژی‌های تجدیدپذیر، از مراحل مطالعاتی تا راه‌اندازی و بهره‌برداری.",
+    icon: Sun,
+    color: "bg-amber-500",
+    shadow: "shadow-amber-500/30",
+    title: "نیروگاه‌های خورشیدی",
+    desc: "طراحی، نظارت و اجرای نیروگاه‌های خورشیدی با رویکرد تخصصی در حوزه تجدیدپذیر، از مطالعات اولیه تا بهره‌برداری.",
   },
   {
-    icon: "⚡",
-    title: "پست‌ها و خطوط انتقال فوق‌توزیع",
-    text:
-      "ارائه خدمات طراحی، نظارت، مشاوره و اجرای پروژه‌های مرتبط با پست‌ها و خطوط انتقال فوق‌توزیع با استفاده از نیروهای متخصص و نرم‌افزارهای ویژه این حوزه برای اطمینان از دقت و پایداری شبکه.",
+    icon: Zap,
+    color: "bg-purple-500",
+    shadow: "shadow-purple-500/30",
+    title: "پست‌ها و خطوط انتقال",
+    desc: "خدمات مهندسی، نظارت و اجرای پست‌ها و خطوط فوق‌توزیع با تضمین پایداری شبکه و رعایت دقیق استانداردها.",
   },
 ];
 
-function SectionHeader({ title, lead }) {
-  return (
-    <div className="mb-5 flex items-center gap-3">
-      <div className="h-8 w-2 rounded-full bg-gradient-to-b from-[#0f2b44] to-[#071a2b] shadow-lg" />
-      <div>
-        <h2 className="text-lg font-semibold text-[#071a2b]">{title}</h2>
-        <p className="text-sm text-slate-500">{lead}</p>
-      </div>
-    </div>
-  );
-}
-
 export default function Services() {
   return (
-    <section id="services" className="mb-12">
-      <SectionHeader title="خدمات" lead="راهکارهای فردادنیرو در سه حوزه اصلی صنعت برق ارائه می‌شود." />
+    <section id="services" className="mb-24">
+      <div className="mb-12 text-center">
+        <h2 className="mb-4 text-3xl font-bold text-[#071a2b]">خدمات تخصصی</h2>
+        <p className="text-slate-500 max-w-2xl mx-auto">راهکارهای جامع مهندسی برای چالش‌های پیچیده صنعت برق</p>
+      </div>
 
-      <div className="grid gap-6 md:grid-cols-3">
-        {SERVICES.map((s) => (
-          <article
-            key={s.title}
-            className="rounded-[14px] bg-white p-5 shadow-[0_14px_30px_rgba(15,23,42,0.12)]"
+      <div className="grid gap-8 md:grid-cols-3">
+        {SERVICES.map((s, i) => (
+          <div
+            key={i}
+            className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl hover:border-blue-100"
           >
-            <div className="mb-3 grid h-10 w-10 place-items-center rounded-2xl border border-slate-200 bg-slate-50 text-sm text-[#071a2b]">
-              {s.icon}
+            <div className={`mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl ${s.color} text-white shadow-lg ${s.shadow}`}>
+              <s.icon size={28} />
             </div>
-            <h3 className="mb-2 text-[15px] font-semibold text-[#071a2b]">{s.title}</h3>
-            <p className="text-sm leading-7 text-slate-500">{s.text}</p>
-          </article>
+            <h3 className="mb-4 text-xl font-bold text-slate-800 group-hover:text-blue-700 transition-colors">
+              {s.title}
+            </h3>
+            <p className="text-sm leading-7 text-slate-500">
+              {s.desc}
+            </p>
+          </div>
         ))}
       </div>
     </section>

@@ -1,48 +1,66 @@
-function SectionHeader({ title, lead }) {
-  return (
-    <div className="mb-5 flex items-center gap-3">
-      <div className="h-8 w-2 rounded-full bg-gradient-to-b from-[#0f2b44] to-[#071a2b] shadow-lg" />
-      <div>
-        <h2 className="text-lg font-semibold text-[#071a2b]">{title}</h2>
-        <p className="text-sm text-slate-500">{lead}</p>
-      </div>
-    </div>
-  );
-}
+import { Phone, MapPin } from "lucide-react";
 
 export default function Contact() {
   return (
-    <section id="contact">
-      <SectionHeader title="تماس با ما" lead="برای همکاری در پروژه‌های اجرایی یا مشاوره، در کنار شما هستیم." />
-
-      <div className="grid gap-6 md:grid-cols-[2fr_1.2fr]">
-        <div className="rounded-[14px] bg-white p-6 shadow-[0_14px_30px_rgba(15,23,42,0.12)]">
-          <p className="text-sm leading-7 text-slate-500">
-            همکاران ما در شرکت فرداد نیرو آمادگی دارند در صورت تمایل شما نسبت به همکاری در پروژه‌های مختلف اجرایی و یا ارائه
-            مشاوره در خصوص فعالیت‌های مرتبط، اقدام نمایند. برای کسب اطلاعات بیشتر یا آغاز همکاری، می‌توانید از طریق شماره‌های
-            تماس زیر با ما در ارتباط باشید.
+    <section id="contact" className="mb-24">
+      <div className="grid gap-8 lg:grid-cols-2">
+        {/* Text Area */}
+        <div className="flex flex-col justify-center">
+          <h2 className="mb-6 text-3xl font-bold text-[#071a2b]">آغاز همکاری</h2>
+          <p className="mb-8 text-slate-600 leading-8 text-lg">
+            برای مشاوره در خصوص پروژه‌های اجرایی، دمو سامانه کدگذاری یا خدمات GIS، 
+            تیم فنی فرداد نیرو آماده پاسخگویی به شماست.
           </p>
+
+          <div className="space-y-4">
+             <div className="flex items-center gap-5 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-50 text-blue-600">
+                  <Phone size={24} />
+                </div>
+                <div>
+                  <div className="text-xs text-slate-400 mb-1">پشتیبانی تلفنی</div>
+                  <div className="font-bold text-slate-800 text-lg">همراه شما هستیم</div>
+                </div>
+             </div>
+          </div>
         </div>
 
-        <div className="rounded-[14px] bg-gradient-to-br from-[#071a2b] to-slate-950 p-5 text-slate-100 shadow-[0_14px_30px_rgba(15,23,42,0.12)]">
-          <div className="mb-3 text-[15px] font-semibold text-white">راه‌های ارتباطی</div>
+        {/* Contact Info Card */}
+        <div className="relative overflow-hidden rounded-3xl bg-[#071a2b] p-8 lg:p-10 text-white shadow-xl">
+           {/* Abstract Background */}
+           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
+           <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-blue-600/30 blur-[80px] rounded-full" />
 
-          <div className="space-y-3 text-sm">
-            <div className="flex items-baseline gap-2">
-              <span className="min-w-[72px] text-xs text-slate-300">تلفن مشهد</span>
-              <span className="font-medium [direction:ltr] [unicode-bidi:bidi-override]">051-91098480</span>
-            </div>
+           <div className="relative z-10">
+             <h3 className="text-xl font-bold mb-8 flex items-center gap-2">
+                <span className="w-1 h-6 bg-blue-500 rounded-full block"></span>
+                راه‌های ارتباطی
+             </h3>
+             
+             <div className="space-y-8">
+               <div className="flex items-start justify-between border-b border-white/10 pb-4">
+                 <span className="text-slate-400 text-sm">دفتر مرکزی</span>
+                 <div className="text-right">
+                    <span className="block font-medium">مشهد / تهران</span>
+                 </div>
+               </div>
 
-            <div className="flex items-baseline gap-2">
-              <span className="min-w-[72px] text-xs text-slate-300">تلفن تهران</span>
-              <span className="font-medium [direction:ltr] [unicode-bidi:bidi-override]">021-91098480</span>
-            </div>
-
-            <p className="pt-2 text-xs text-slate-300">
-              برای هماهنگی جلسات حضوری، ارائه دمو از سامانه کدگذاری یا دریافت اطلاعات تکمیلی پروژه‌ها، از طریق شماره‌های فوق با
-              تیم فردادنیرو در ارتباط باشید.
-            </p>
-          </div>
+               <div className="space-y-4">
+                  <div className="flex justify-between items-center">
+                      <span className="text-slate-400 text-sm">تلفن مشهد</span>
+                      <span className="font-mono text-lg dir-ltr">051 - 9109 8480</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                      <span className="text-slate-400 text-sm">تلفن تهران</span>
+                      <span className="font-mono text-lg dir-ltr">021 - 9109 8480</span>
+                  </div>
+               </div>
+               
+               <p className="text-xs text-slate-500 leading-6 pt-4">
+                 جهت هماهنگی جلسات حضوری یا دریافت کاتالوگ‌های فنی، لطفاً در ساعات اداری با شماره‌های فوق تماس حاصل فرمایید.
+               </p>
+             </div>
+           </div>
         </div>
       </div>
     </section>
